@@ -4,8 +4,8 @@ MyReads project is a bookshelf app that allows users to organize their books int
 
 ## Installation
 
-* ```npm i``` [or npm install] to install all project dependencies
-* ```npm start``` to start the project
+* `npm install` to install all project dependencies
+* `npm start` to start the development server
 
 ## Backend Server
 
