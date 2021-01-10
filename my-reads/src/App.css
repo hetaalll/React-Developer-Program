@@ -196,3 +196,9 @@ button:active {
   text-align: center;
   font-size: 0.8em;
 }
+
+.noResults {
+  text-align: center;
+  font-family:Courier New;
+  font-size: 2em;
+}
