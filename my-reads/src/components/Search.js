@@ -58,7 +58,7 @@ class Search extends Component {
           <ol className="books-grid">
           {this.state.result.map((book) => {
                 let bookShelf = getBookShelf(book);
-                return <Book book={book} shelf={bookShelf}/>
+                return <Book book={book} shelf={bookShelf} updateShelf={this.props.updateShelf} />
           })}
           </ol>
         </div>
