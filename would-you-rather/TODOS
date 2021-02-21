@@ -1,0 +1,17 @@
+------------- views
+home [unanswered questions views, answered questions views] [route /]
+login view [route /login]
+leaderboard view [route /leaderboard]
+new question [route /new]
+individual question view [route questions/:question_id]
+individual answered question view [route questions/:question_id]
+
+------------- actions
+SET_AUTHED_USER
+GET_QUESTIONS
+RECEIVE_USERS
+ADD_QUESTION
+ANSWER_QUESTION
+
+
+
