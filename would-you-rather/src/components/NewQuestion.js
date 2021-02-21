@@ -73,7 +73,7 @@ class NewQuestion extends Component {
                   value ={this.state.optionTwoText}
                   onChange={this.handleOptionTwo}
                 />
-                <button type="submit">Submit</button>
+                <button className="form-btn" type="submit">Submit</button>
             </div>
         </form>
       </div>

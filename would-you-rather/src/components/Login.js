@@ -31,7 +31,7 @@ class Login extends Component {
                                 <option key={id} value={id}>{name}</option>
                             ))}
                         </select>
-                        <button type="submit">Login</button>
+                        <button className="form-btn" type="submit">Login</button>
                     </div>
                 </form>
             </div>
