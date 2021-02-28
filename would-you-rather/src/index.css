@@ -63,3 +63,44 @@ select, input {
 h3 {
   text-align: center;
 }
+
+.card {
+  display: flex;
+  width: 70%;
+  margin: auto;
+  margin-top: 20px;
+  padding: 15px;
+  border: 2px solid rgba(167, 167, 167, 0.5);
+}
+
+.avatar {
+  width: 50%;
+}
+
+.userInfo {
+  margin-left: 10px;
+  padding-left: 20px;
+  border-left: 1px solid rgba(167, 167, 167, 0.5);
+}
+
+.leader-title, .score-title {
+  font-weight: bold;
+  margin: 0;
+  font-size: 150%;
+}
+
+.score-title {
+  padding-top: 20px;
+}
+
+.score-card {
+  display: inline-block;
+  padding: 10px 15px;
+  margin-left: 10px;
+  background-color: aquamarine;
+  border-radius: 50%;
+}
+
+.question-info {
+  font-size: 3vh;
+}
