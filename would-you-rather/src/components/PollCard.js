@@ -8,7 +8,6 @@ class PollCard extends Component {
         userAnswer: ''
     }
     onChange = (e) => {
-        console.log(e.target.value)
         this.setState({
             userAnswer: e.target.value
         });
@@ -23,7 +22,6 @@ class PollCard extends Component {
     }
   render() {
     const {authedUser, question, question_id, avatar, author, users} = this.props
-    console.log(question)
     if(question === null) {
         return <ErrorPage />
     }
@@ -78,7 +76,7 @@ class PollCard extends Component {
                 </div>
                 )}
             </div>
-            <span>You voted for: {question[userAnswer].text} </span>
+            {isAnswered && <span>You voted for: {question[userAnswer].text} </span>}
         </div>
     )
   }
