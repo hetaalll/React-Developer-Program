@@ -13,3 +13,7 @@ export function getInitialData () {
 export function saveQuestion(options){
     return _saveQuestion(options);
 }
+
+export function saveQuestionAnswer(answer){
+    return _saveQuestionAnswer(answer);
+}

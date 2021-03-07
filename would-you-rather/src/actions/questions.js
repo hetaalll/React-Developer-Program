@@ -1,7 +1,9 @@
 import { saveQuestion } from '../utils/api'
 import { updateUserQuestionsArray } from './users'
+
 export const RECEIVE_QUESTIONS = 'RECEIVE_QUESTIONS';
 export const ADD_QUESTION = 'ADD_QUESTION';
+export const USER_ANSWERS_UPDATE = 'USER_ANSWERS_UPDATE'
 
 export function receiveQuestions(questions) {
     return {
@@ -17,6 +19,15 @@ export function addQuestion (question) {
     }
 }
 
+export function updateUsersAnswersArray ({authedUser, qid, answer}) {
+    return {
+        type: USER_ANSWERS_UPDATE,
+        authedUser,
+        qid,
+        answer
+    };
+  }
+
 export function handleAddQuestion (optionOneText, optionTwoText) {
     return (dispatch, getState) => {
         const { authedUser } = getState()
@@ -29,7 +40,7 @@ export function handleAddQuestion (optionOneText, optionTwoText) {
             dispatch(addQuestion(question))
             dispatch(updateUserQuestionsArray(question))
         }).catch((error)=>{
-            console.warn('ERROR!! Could not add a new question:(',error)
+            console.warn('ERROR!! Could not add a new question: ' ,error)
         })
     }
 }
