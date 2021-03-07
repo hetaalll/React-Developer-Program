@@ -26,11 +26,13 @@ li a:hover:not(.active) {
   background-color: #111;
 }
 
+.active {
+  background-color: #4CAF50;
+}
+
 .modal-content {
-  margin: 5% auto 15% auto; /* 5% from the top, 15% from the bottom and centered */
-  width: 80%; /* Could be more or less, depending on screen size */
-  /* border: 2px solid rgb(138, 138, 138);
-  padding: 10px; */
+  margin: 5% auto 15% auto;
+  width: 50%;
 }
 
 select, input {
@@ -76,8 +78,8 @@ h3 {
 .avatar {
   width: 30%;
   border-radius: 50%;
-  margin-right: 20px;
-  margin-left: 20px;
+  margin: 20px;
+  height: fit-content;
 }
 
 .userInfo {
@@ -106,4 +108,26 @@ h3 {
 
 .question-info {
   font-size: 3vh;
+}
+
+.error-page {
+  font-size: 5vh;
+  text-align: center;
+}
+
+.four-of-four {
+  color: rgb(197, 5, 5);
+}
+
+.error-btn {
+  background-color: white;
+  color: black;
+  border: 2px solid rgb(197, 5, 5);
+  padding: 10px;
+}
+
+.error-btn:hover {
+  background-color: rgb(197, 5, 5);
+  cursor: pointer;
+  color: white;
 }
