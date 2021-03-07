@@ -158,3 +158,13 @@ h3 {
   text-align: center;
   margin-top: 5px;
 }
+
+#progressbar {
+  background-color: rgb(109, 109, 109);
+  padding: 3px;
+}
+
+#progressbar>div {
+  background-color: rgb(89, 153, 238);
+  height: 20px;
+}

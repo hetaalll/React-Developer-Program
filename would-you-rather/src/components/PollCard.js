@@ -35,6 +35,8 @@ class PollCard extends Component {
     const optionOneVotePercentage = (optionOneVotes / totalVotes) * 100;
     const optionTwoVotePercentage = (optionTwoVotes / totalVotes) * 100;
 
+    const userAnswer = users[authedUser].answers[question_id]
+
     return (
         <div className="poll-card"> <span> {author} asks: </span>
             <div className="card-flex">
@@ -62,9 +64,21 @@ class PollCard extends Component {
                 : (<div className="userInfo">
                     <h3 className="title">Results</h3>
                     <p>Would you rather {question.optionOne.text}</p>
+                    <div id="progressbar">
+                        <div style={{width: `${optionOneVotePercentage}%`}}>
+                          <span style={{paddingLeft: '5px'}}>{optionOneVotePercentage}%</span>
+                        </div>
+                    </div>
+                    <p>Would you rather {question.optionTwo.text}</p>
+                    <div id="progressbar">
+                        <div style={{width: `${optionTwoVotePercentage}%`}}>
+                          <span style={{paddingLeft: '5px'}}>{optionTwoVotePercentage}%</span>
+                        </div>
+                    </div>
                 </div>
                 )}
             </div>
+            <span>You voted for: {question[userAnswer].text} </span>
         </div>
     )
   }
