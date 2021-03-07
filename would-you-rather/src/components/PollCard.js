@@ -67,16 +67,18 @@ class PollCard extends Component {
                           <span style={{paddingLeft: '5px'}}>{optionOneVotePercentage}%</span>
                         </div>
                     </div>
+                    <span> {optionOneVotes} out of {totalVotes} </span>
                     <p>Would you rather {question.optionTwo.text}</p>
                     <div id="progressbar">
                         <div style={{width: `${optionTwoVotePercentage}%`}}>
                           <span style={{paddingLeft: '5px'}}>{optionTwoVotePercentage}%</span>
                         </div>
                     </div>
+                    <span> {optionTwoVotes} out of {totalVotes} </span>
                 </div>
                 )}
             </div>
-            {isAnswered && <span>You voted for: {question[userAnswer].text} </span>}
+            {isAnswered && <span className="youVoted">You voted for: <b>{question[userAnswer].text}</b> </span>}
         </div>
     )
   }

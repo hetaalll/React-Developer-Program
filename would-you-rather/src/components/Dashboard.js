@@ -30,8 +30,8 @@ class Dashboard extends Component {
     return (
       <div>
         <div className="dashboard-btns">
-          <button className={this.state.button1} onClick={() => this.onTabChange('unanswered')}>Unanswered Question</button>
-          <button className={this.state.button2} onClick={() => this.onTabChange('answered')}>Answered Question</button>
+          <button className={this.state.button1} onClick={() => this.onTabChange('unanswered')}>Unanswered Questions</button>
+          <button className={this.state.button2} onClick={() => this.onTabChange('answered')}>Answered Questions</button>
         </div>
         {this.state.tab === 'unanswered' ?
           unansweredQuestions.map((question) => (

@@ -24,7 +24,7 @@ class App extends Component {
             <Nav />
             <Switch>
               <Route path='/' exact component={Dashboard} />
-              <Route path = '/new' exact component={NewQuestion} />
+              <Route path = '/add' exact component={NewQuestion} />
               <Route path= '/questions/:question_id' component={PollCard} />
               <Route path = '/leaderboard' exact component={Leaderboard} />
               <Route component={ErrorPage} />
