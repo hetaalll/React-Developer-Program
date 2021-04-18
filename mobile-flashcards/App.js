@@ -14,11 +14,31 @@ export default function App() {
   return (
     <NavigationContainer>
       <Stack.Navigator initialRouteName="DeckList">
-        <Stack.Screen name="DeckList" component={DeckList} />
-        <Stack.Screen name="Deck" component={Deck} />
-        <Stack.Screen name="NewDeck" component={NewDeck} />
-        <Stack.Screen name="NewCard" component={NewCard} />
-        <Stack.Screen name="Quiz" component={Quiz} />
+        <Stack.Screen
+          name="DeckList"
+          component={DeckList}
+          options={{ title: 'Flashcards' }}
+        />
+        <Stack.Screen
+          name="Deck"
+          component={Deck}
+          options={({ route }) => ({ title: route.params.title })}
+        />
+        <Stack.Screen
+          name="NewDeck"
+          component={NewDeck}
+          options={{ title: 'Add New Deck' }}
+        />
+        <Stack.Screen
+          name="NewCard"
+          component={NewCard}
+          options={{ title: 'Add New Card' }}
+        />
+        <Stack.Screen
+          name="Quiz"
+          component={Quiz}
+          options={{ title: 'Quiz' }}
+        />
       </Stack.Navigator>
     </NavigationContainer>
   );
