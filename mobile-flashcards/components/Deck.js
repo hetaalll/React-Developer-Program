@@ -1,10 +1,28 @@
 import React, { useState } from 'react';
+import { HeaderBackButton } from '@react-navigation/stack';
 import { StyleSheet, Text, View, TouchableOpacity } from 'react-native';
 import { deleteDeckData, fetchAllDecks } from '../utils/api';
 
 export default function Deck({ navigation, route }) {
     const { title, questions } = route.params
     const [error, setError] = useState(null)
+
+    React.useLayoutEffect(() => {
+      navigation.setOptions({
+        headerLeft: (props) => (
+          <HeaderBackButton
+            {...props}
+            onPress={() => {
+              fetchAllDecks().then((decksList) => {
+                navigation.navigate('DeckList', {
+                  decksList
+                });
+              })
+            }}
+          />
+        ),
+      });
+    }, [navigation]);
 
     const startQuiz = () => {
       if(questions.length === 0) {

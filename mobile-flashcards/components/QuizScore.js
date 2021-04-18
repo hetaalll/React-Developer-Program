@@ -1,7 +1,12 @@
 import React from 'react';
 import { StyleSheet, Text, View, TouchableOpacity } from 'react-native';
+import { clearLocalNotification, setLocalNotification } from '../utils/helper'
 
 export default function QuizScore({ score, total, restartQuiz, returnToDeck }) {
+    useEffect(() => {
+      clearLocalNotification().then(setLocalNotification)
+    }, [])
+
     return (
       <View style={styles.container}>
           <Text style={styles.title}> Score: { score } / {total} </Text>
