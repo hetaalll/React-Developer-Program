@@ -36,5 +36,6 @@ export const formatData = (data) => {
 }
 
 export const getDeck = (data, title) => {
-    console.log(data, title)
+    const parsedData = JSON.parse(data)
+    return parsedData[title];
 }

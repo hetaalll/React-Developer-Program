@@ -1,6 +1,6 @@
 import React, { useState } from 'react';
 import { StyleSheet, Text, View, TextInput, Button } from 'react-native';
-import { addCardtoDeck } from '../utils/api';
+import { addCardtoDeck, fetchDeck } from '../utils/api';
 
 export default function NewCard({ navigation, route }) {
     const { title, questions } = route.params
@@ -25,10 +25,14 @@ export default function NewCard({ navigation, route }) {
           question,
           answer
         }
-        addCardtoDeck(title, questions, card)
-        navigation.navigate('Deck', {
-          title,
-          questions
+        addCardtoDeck(title, questions, card).then((res) => {
+          fetchDeck(title).then((data) => {
+            const { title, questions } = data
+            navigation.navigate('Deck', {
+              title,
+              questions
+            })
+          })
         })
       }
     }

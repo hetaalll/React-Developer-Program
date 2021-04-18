@@ -7,9 +7,9 @@ export const fetchAllDecks = async () => {
 }
 
 // fetchDeck: take in a single title argument and return the deck associated with that title.
-// export function fetchDeck(title) {
-//     return AsyncStorage.getItem(FLASHCARD_STORAGE_KEY).then((data) => getDeck(data, title))
-// }
+export function fetchDeck(title) {
+    return AsyncStorage.getItem(FLASHCARD_STORAGE_KEY).then((data) => getDeck(data, title))
+}
 
 // saveDeck: take in a single title argument and add it to the decks.
 export function saveDeck(title) {
@@ -37,14 +37,11 @@ export function addCardtoDeck(title, existingQuestions , newCard) {
 
 // deleteDeckData: takes in the title of the deck and will delete it
 export function deleteDeckData(title) {
-    console.log(title)
     return AsyncStorage.getItem(FLASHCARD_STORAGE_KEY)
     .then((results) => {
       const data = JSON.parse(results)
-      console.log(data)
       data[title] = undefined
       delete data[title]
-      console.log(data)
       AsyncStorage.setItem(FLASHCARD_STORAGE_KEY, JSON.stringify(data))
     })
 }

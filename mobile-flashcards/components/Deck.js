@@ -1,7 +1,6 @@
 import React, { useState } from 'react';
 import { StyleSheet, Text, View, TouchableOpacity } from 'react-native';
-import { deleteDeckData } from '../utils/api';
-
+import { deleteDeckData, fetchAllDecks } from '../utils/api';
 
 export default function Deck({ navigation, route }) {
     const { title, questions } = route.params
@@ -30,8 +29,13 @@ export default function Deck({ navigation, route }) {
     }
 
     const deleteDeck = () => {
-      deleteDeckData(title);
-      navigation.navigate('DeckList');
+      deleteDeckData(title).then((res) => {
+        fetchAllDecks().then((decksList) => {
+          navigation.navigate('DeckList', {
+            decksList
+          });
+        })
+      });
     }
 
     return (

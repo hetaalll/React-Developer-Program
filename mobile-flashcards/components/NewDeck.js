@@ -1,6 +1,6 @@
 import React, { useState } from 'react';
 import { StyleSheet, Text, View, TextInput, Button } from 'react-native';
-import { saveDeck } from '../utils/api';
+import { saveDeck, fetchAllDecks } from '../utils/api';
 
 export default function NewDeck({ navigation }) {
     const [title, setTitle] = useState('');
@@ -12,10 +12,12 @@ export default function NewDeck({ navigation }) {
         setError('Title cannot be empty')
       }
       else {
-        saveDeck(title)
-        navigation.navigate('Deck', {
-          title,
-          questions: []
+        saveDeck(title).then((res) => {
+          fetchAllDecks().then((decksList) => {
+            navigation.navigate('DeckList', {
+              decksList
+            });
+          })
         })
       }
     }

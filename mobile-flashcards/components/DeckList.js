@@ -2,16 +2,21 @@ import React, { useState, useEffect } from 'react';
 import { StyleSheet, Text, View, TouchableOpacity, FlatList, Button } from 'react-native';
 import { fetchAllDecks } from '../utils/api';
 
-export default function DeckList({ navigation }) {
+export default function DeckList({ navigation, route }) {
     const [allDecks, setAllDecks] = useState([]);
 
     useEffect(() => {
-      fetchAllDecks()
+      if(route.params !== undefined) {
+        const { decksList } = route.params
+        const decksListArray = convertObjectToArray(decksList)
+        setAllDecks(decksListArray)
+      }
+      else {
+        fetchAllDecks()
         .then(convertObjectToArray)
         .then(setAllDecks);
-    }, [])
-
-    console.log(allDecks)
+      }
+    }, [route])
 
     const convertObjectToArray = (decks) => {
       const arr = Object.entries(decks)
