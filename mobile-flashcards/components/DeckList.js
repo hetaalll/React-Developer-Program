@@ -1,9 +1,10 @@
 import React, { useState, useEffect } from 'react';
-import { StyleSheet, Text, View, TouchableOpacity, FlatList, Button } from 'react-native';
+import { StyleSheet, Text, View, TouchableOpacity, FlatList, Button, Animated } from 'react-native';
 import { fetchAllDecks } from '../utils/api';
 
 export default function DeckList({ navigation, route }) {
     const [allDecks, setAllDecks] = useState([]);
+    const bounceValue = new Animated.Value(1);
 
     useEffect(() => {
       if(route.params !== undefined) {
@@ -28,10 +29,17 @@ export default function DeckList({ navigation, route }) {
     }
 
     const openDeck = (title, questions) => {
-      navigation.navigate('Deck', {
-        title,
-        questions
-      })
+      Animated.sequence([
+        Animated.timing(bounceValue, { duration: 200, toValue: 1.04}),
+        Animated.spring(bounceValue, { toValue: 1, friction: 4})
+      ]).start()
+
+      setTimeout(() => {
+        navigation.navigate('Deck', {
+          title,
+          questions
+        })
+      }, 500);
     }
 
     const addNewDeck = () => {
@@ -42,10 +50,10 @@ export default function DeckList({ navigation, route }) {
       <TouchableOpacity
         onPress={() => openDeck(item.title, item.questions)}
       >
-      <View style={styles.row}>
-        <Text style={styles.title}>{ item.title }</Text>
-        <Text>{ item.questions.length } cards </Text>
-      </View>
+        <Animated.View style={[styles.row, {transform: [{scale: bounceValue}]}]}>
+          <Text style={styles.title}>{ item.title }</Text>
+          <Text>{ item.questions.length } cards </Text>
+        </Animated.View>
       </TouchableOpacity>
     );
 
