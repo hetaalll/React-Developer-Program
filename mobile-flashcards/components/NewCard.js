@@ -53,7 +53,7 @@ export default function NewCard({ navigation, route }) {
         onChangeText={setAnswer}
         value={answer}
       />
-      {question.length === 0 && <Text style={styles.error}>
+      {(question.length === 0 || answer.length === 0) && <Text style={styles.error}>
         {error}
       </Text>
       }

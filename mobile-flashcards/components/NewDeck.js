@@ -7,17 +7,14 @@ export default function NewDeck({ navigation }) {
     const [error, setError] = useState(null)
 
     const submitDeck = () => {
-      //TODO: if title already exists, cannot add deck
       if(title.length === 0) {
         setError('Title cannot be empty')
       }
       else {
-        saveDeck(title).then((res) => {
-          fetchAllDecks().then((decksList) => {
-            navigation.navigate('DeckList', {
-              decksList
-            });
-          })
+        saveDeck(title)
+        navigation.navigate('Deck', {
+          title,
+          questions: []
         })
       }
     }
