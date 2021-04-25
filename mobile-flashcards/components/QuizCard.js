@@ -1,8 +1,7 @@
 import React, { useState } from 'react';
 import { StyleSheet, Text, View, TouchableOpacity } from 'react-native';
 
-export default function QuizCard({ card, cardIndex, handleCorrectAnswer, handleIncorrectAnswer, total }) {
-    const [showAnswer, setShowAnswer] = useState(false);
+export default function QuizCard({ card, cardIndex, handleCorrectAnswer, handleIncorrectAnswer, total, showAnswer, setShowAnswer }) {
     const { question, answer } = card
 
     return (

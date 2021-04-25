@@ -8,15 +8,18 @@ export default function Quiz({ navigation, route }) {
     const [cardIndex, setCardIndex] = useState(0);
     const [correctAnswers, setCorrectAnswers] = useState(0);
     const [incorrectAnswers, setIncorrectAnswers] = useState(0);
+    const [showAnswer, setShowAnswer] = useState(false);
 
     const remainingCards = questions.length - cardIndex;
 
     const handleCorrectAnswer = () => {
+      setShowAnswer(false)
       setCorrectAnswers(correctAnswers + 1)
       setCardIndex(cardIndex + 1)
     }
 
     const handleIncorrectAnswer = () => {
+      setShowAnswer(false)
       setIncorrectAnswers(incorrectAnswers + 1)
       setCardIndex(cardIndex + 1)
     }
@@ -51,6 +54,8 @@ export default function Quiz({ navigation, route }) {
               card={questions[cardIndex]}
               cardIndex={cardIndex}
               total={questions.length}
+              showAnswer={showAnswer}
+              setShowAnswer={setShowAnswer}
               handleCorrectAnswer={handleCorrectAnswer}
               handleIncorrectAnswer={handleIncorrectAnswer}
           />
