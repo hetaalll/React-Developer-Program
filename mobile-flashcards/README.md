@@ -7,4 +7,4 @@ Mobile Flashcards is an application created using React Native. It allows you to
 * `npm install` to install all project dependencies
 * `npm start` to start the development server
 
-This project has been tested on Expo Snack website.
+This project has been tested on Expo Snack iOS and Andriod simulators.
